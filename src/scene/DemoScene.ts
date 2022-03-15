@@ -24,6 +24,9 @@ export class DemoScene extends THREE.Scene {
         })
     }
 
+    /**
+     * Helper function to initialize the scene
+     */
     private async init() {
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
         this.sun = new THREE.PointLight(0xffffff, 1);
@@ -42,6 +45,11 @@ export class DemoScene extends THREE.Scene {
         this.add(ambientLight);
     }
 
+    /**
+     * is rendering the earth inside the scene
+     *
+     * @param textureLoader THREE.Textureloader to load all textures
+     */
     private async createEarth(textureLoader: THREE.TextureLoader): Promise<THREE.Mesh> {
         const earthMap = await textureLoader.loadAsync(earthMapIMG);
         const earthBump = await textureLoader.loadAsync(earthBumpIMG);
@@ -56,6 +64,11 @@ export class DemoScene extends THREE.Scene {
         return new THREE.Mesh(earthGeometry, earthMaterial);
     }
 
+    /**
+     * is rendering the clouds inside the scene
+     *
+     * @param textureLoader THREE.Textureloader to load all textures
+     */
     private async createClouds(textureLoader: THREE.TextureLoader): Promise<THREE.Mesh> {
         const cloudMap = await textureLoader.load(cloudMapIMG);
 
@@ -68,6 +81,11 @@ export class DemoScene extends THREE.Scene {
         return new THREE.Mesh(cloudGeometry, cloudMaterial);
     }
 
+    /**
+     * is rendering the stars inside the scene
+     *
+     * @param textureLoader THREE.Textureloader to load all textures
+     */
     private async createStars(textureLoader: THREE.TextureLoader): Promise<THREE.Mesh> {
         const starsMap = await textureLoader.load(starsMapIMG);
 
@@ -80,6 +98,9 @@ export class DemoScene extends THREE.Scene {
         return new THREE.Mesh(starsGeometry, starsMaterial);
     }
 
+    /**
+     * main loop which handles rotating all objects slightly
+     */
     animate() {
         this.earth.rotateY(0.001);
         this.clouds.rotateY(0.0008);
