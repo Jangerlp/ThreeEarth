@@ -1,6 +1,8 @@
 ![BannerImageThreeEarth](./ThreeEarth_repo_img.png)
 
 # ThreeEarth 🌍
+[Preview](https://jangerlp.github.io/ThreeEarth/)
+
 Spinning earth made with [Three.js](https://threejs.org/)
 
 ## Setting up local development environment 🖥️
